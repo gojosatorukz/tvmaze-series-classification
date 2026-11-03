@@ -1,0 +1,6 @@
+Data source: TVmaze, https://www.tvmaze.com. API: https://www.tvmaze.com/api.
+The TVmaze public API data and our adapted cleaned data are distributed under CC BY-SA 4.0:
+https://creativecommons.org/licenses/by-sa/4.0/
+Changes: selection of a finite cohort, restructuring JSON as CSV, HTML removal from summaries,
+derived premiere year/distribution/binary label and frozen experimental assignments.
+Keep source attribution, indicate further changes, and comply with ShareAlike when redistributing data.

@@ -1,0 +1,10 @@
+.venv/
+.runtime/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+models/
+data/
+results/
+Endterm_TVSeries.html
