@@ -1,5 +1,7 @@
 # TV series classification from metadata
 
+**[Bekzat Rashiduly](https://github.com/gojosatorukz) — individual machine learning project at Astana IT University.** I collected and prepared the data, built the training and evaluation pipeline, and compared models through cross-validation and error analysis.
+
 A reproducible study of whether structured TVmaze metadata can identify series rated at least 8/10. The repository compares tuned tree ensembles and a small neural network with an SVM benchmark, and investigates what PCA and clustering actually reveal about the catalogue.
 
 The main result is a modest signal and a useful negative finding: higher cross-validation F1 did not translate into a higher score on the reused holdout. The project preserves that result rather than selecting a winner from test scores.
