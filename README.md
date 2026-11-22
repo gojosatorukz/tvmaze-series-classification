@@ -8,6 +8,12 @@ For this cohort, split and training protocol, adding frozen MiniLM synopsis feat
 
 ![Representation comparison](figures/representation_comparison.png)
 
+## Audience reception follow-up
+
+On the same 468 series, the audience-assisted model selected using training cross-validation reached **F1 0.497**, compared with **0.350** in the original content experiment. On the separate catalogue slice it reached **0.357** versus **0.418** for the original model. This is retrospective classification using post-release evidence. See the [audience study](AUDIENCE_STUDY.md) for a breakdown by source, the separate catalogue test and reproducibility commands.
+
+The [training-set expansion](AUDIENCE_SCALEUP.md) compares models on 379 additional titles.
+
 ## Data and prediction target
 
 The immutable 6 October 2026 TVmaze snapshot contains 14,055 raw series. Filtering leaves **2,339 rated English scripted series**, including **404 positives (17.3%)**. One row represents one series. The 1,732 otherwise eligible series with unknown ratings are excluded. All retained series have a synopsis linked to the same show ID.
