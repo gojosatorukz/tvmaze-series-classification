@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TVmaze Rating Lab</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="topbar"><a href="/" class="wordmark">TVmaze <span>Rating Lab</span></a><span class="local">Local model inference</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">METADATA + STORY</p><h1>What can a synopsis tell us<br>about a highly rated series?</h1><p>Explore predictions from the same experiment using metadata, plot descriptions and both sources together.</p></section>
+    <div class="workspace">
+      <section class="input-panel" aria-labelledby="input-title">
+        <div class="section-top"><h2 id="input-title">Describe a series</h2><label class="example-label">Load an example<select id="examples"><option value="">Your own series</option></select></label></div>
+        <form id="prediction-form">
+          <label>Series name <span class="hint">for your reference</span><input id="name" placeholder="Your series" maxlength="120"></label>
+          <div class="two-col"><label>Premiere year<input name="premiere_year" type="number" min="1900" max="2100" placeholder="2020"></label><label>Episode runtime <span class="hint">minutes</span><input name="runtime_minutes" type="number" min="1" max="600" step="any" placeholder="45"></label></div>
+          <label>Genres <span class="hint">separate with commas</span><input name="genres" placeholder="Drama, Crime" maxlength="500"></label>
+          <div class="two-col"><label>TV network<input name="network" placeholder="Unknown" maxlength="120"></label><label>Streaming platform<input name="web_channel" placeholder="None" maxlength="120"></label></div>
+          <div class="two-col"><label>Broadcaster country<input name="broadcast_country" placeholder="US, GB or Unknown" maxlength="120"></label><label>Distribution<select name="distribution"><option>Unknown</option><option>Broadcast</option><option>Streaming</option><option>Hybrid</option></select></label></div>
+          <label>Plot synopsis <span class="hint">English</span><textarea name="plot_summary" rows="5" maxlength="15000" placeholder="Describe the story, characters and setting…"></textarea></label>
+          <p class="field-note">Blank numeric fields use training medians. Add a synopsis to compare the text models. MiniLM reads up to 256 tokens.</p>
+          <button class="predict-button" type="submit"><span>Run prediction</span><span aria-hidden="true">↗</span></button>
+          <p id="error" role="alert" hidden></p>
+        </form>
+      </section>
+      <section class="output-panel" aria-labelledby="results-title">
+        <div class="section-top"><h2 id="results-title">Model predictions</h2><span class="target">Target ≥ 8/10</span></div>
+        <p id="result-status" class="status" aria-live="polite">Enter a series or load a held-out example to begin.</p>
+        <div id="prediction-cards" class="prediction-cards">
+          <article class="prediction-card empty"><div class="card-label">Metadata</div><p class="empty-score">—</p><p>Year, runtime, genres and platform</p></article>
+          <article class="prediction-card empty"><div class="card-label">Synopsis</div><p class="empty-score">—</p><p>Text features learned from the story</p></article>
+          <article class="prediction-card empty"><div class="card-label">Combined</div><p class="empty-score">—</p><p>Metadata and synopsis together</p></article>
+        </div>
+        <div id="observed" class="observed" hidden></div>
+        <section class="study-panel"><h3>Evidence from the experiment</h3><p class="metric-note">F1 for the highly rated class · higher is better</p><div id="experiment-table" class="table-wrap"></div><p id="experiment-conclusion" class="conclusion"></p></section>
+        <p class="scope">Evaluated on rated English scripted series from the October 2026 TVmaze snapshot. Model scores are uncalibrated. Performance on future or unrated series requires further validation.</p>
+      </section>
+    </div>
+    <footer>Developed by Bekzat Rashiduly · Data from TVmaze, CC BY-SA 4.0 · Frozen MiniLM text features, Apache-2.0</footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

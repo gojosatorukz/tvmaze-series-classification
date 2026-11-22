@@ -1,0 +1,386 @@
+:root {
+  --ink:#152936;
+  --muted:#647680;
+  --line:#dce3e5;
+  --paper:#f5f7f6;
+  --teal:#087f78;
+  --coral:#d45f44;
+  --white:#fff
+}
+* {
+  box-sizing:border-box
+}
+body {
+  margin:0;
+  color:var(--ink);
+  background:var(--paper);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15px;
+  line-height:1.5
+}
+.topbar {
+  height:76px;
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 max(30px,calc((100vw - 1260px)/2))
+}
+.wordmark {
+  color:var(--ink);
+  text-decoration:none;
+  font-size:22px;
+  font-weight:750;
+  letter-spacing:-.8px
+}
+.wordmark span {
+  font-weight:400;
+  color:var(--muted);
+  margin-left:8px
+}
+.local {
+  font-size:13px;
+  color:var(--muted)
+}
+.local:before {
+  content:"";
+  display:inline-block;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--teal);
+  margin-right:8px
+}
+main {
+  max-width:1260px;
+  margin:auto;
+  padding:0 30px
+}
+.intro {
+  padding:44px 0 34px
+}
+.eyebrow {
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:700;
+  color:var(--teal);
+  margin:0 0 13px
+}
+h1 {
+  font-size:clamp(29px,3.1vw,42px);
+  line-height:1.14;
+  letter-spacing:-1.3px;
+  font-weight:650;
+  margin:0 0 17px
+}
+.intro>p:last-child {
+  color:var(--muted);
+  max-width:650px;
+  margin:0
+}
+.workspace {
+  display:grid;
+  grid-template-columns:1fr 1.12fr;
+  gap:26px;
+  align-items:start
+}
+.input-panel,.output-panel {
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:26px
+}
+.section-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:23px
+}
+h2 {
+  font-size:19px;
+  letter-spacing:-.3px;
+  line-height:1.3;
+  margin:0
+}
+h3 {
+  font-size:17px;
+  margin:0 0 4px;
+  letter-spacing:-.3px
+}
+.example-label {
+  font-size:10px!important;
+  color:var(--muted)!important;
+  margin:0!important;
+  min-width:160px
+}
+.example-label select {
+  font-size:12px;
+  padding:6px 9px;
+  margin-top:3px
+}
+label {
+  display:block;
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:15px
+}
+.hint {
+  font-size:11px;
+  color:var(--muted);
+  font-weight:400;
+  margin-left:3px
+}
+input,select,textarea {
+  display:block;
+  width:100%;
+  margin-top:6px;
+  border:1px solid #d3dde0;
+  border-radius:6px;
+  background:#fff;
+  padding:10px 11px;
+  font:inherit;
+  font-size:13px;
+  color:var(--ink);
+  transition:border-color .15s
+}
+input:focus,textarea:focus,select:focus {
+  outline:2px solid #c6e5e1;
+  outline-offset:1px;
+  border-color:var(--teal)
+}
+textarea {
+  resize:vertical;
+  min-height:120px
+}
+.two-col {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px
+}
+.field-note {
+  font-size:11px;
+  color:var(--muted);
+  margin:0 0 18px;
+  line-height:1.6
+}
+.predict-button {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  border:0;
+  border-radius:7px;
+  background:var(--ink);
+  color:#fff;
+  padding:13px 17px;
+  font:inherit;
+  font-size:14px;
+  font-weight:550;
+  cursor:pointer
+}
+.predict-button:hover {
+  background:#254557
+}
+.predict-button:disabled {
+  opacity:.55;
+  cursor:wait
+}
+.predict-button span:last-child {
+  font-size:22px;
+  line-height:1
+}
+.target {
+  font-size:11px;
+  color:var(--muted);
+  white-space:nowrap
+}
+.status {
+  font-size:12px;
+  color:var(--muted);
+  margin:-6px 0 21px
+}
+.prediction-cards {
+  display:grid;
+  gap:12px
+}
+.prediction-card {
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:17px 18px;
+  position:relative
+}
+.card-label {
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.5px;
+  color:var(--muted)
+}
+.prediction-card p {
+  font-size:11px;
+  color:var(--muted);
+  margin:6px 0 0
+}
+.prediction-card .empty-score {
+  font-size:24px;
+  line-height:1;
+  margin:8px 0;
+  color:#9cabb2
+}
+.prediction-card .outcome {
+  font-size:20px;
+  letter-spacing:-.4px;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.4;
+  margin-top:6px
+}
+.score-value {
+  position:absolute;
+  top:20px;
+  right:18px;
+  font-size:23px;
+  font-weight:600;
+  letter-spacing:-.6px;
+  color:var(--teal)
+}
+.prediction-card.positive {
+  border-left:3px solid var(--teal)
+}
+.prediction-card.negative {
+  border-left:3px solid #b7c4c8
+}
+.selected-label {
+  float:right;
+  font-weight:500;
+  color:var(--teal);
+  font-size:10px;
+  letter-spacing:0
+}
+.score-track {
+  height:4px;
+  background:#edf2f1;
+  border-radius:3px;
+  margin-top:12px;
+  overflow:hidden
+}
+.score-fill {
+  height:100%;
+  background:var(--teal)
+}
+.observed {
+  margin-top:17px;
+  background:#f4f7f7;
+  border-radius:6px;
+  padding:11px 13px;
+  font-size:12px;
+  color:var(--muted)
+}
+.study-panel {
+  margin-top:30px;
+  padding-top:24px;
+  border-top:1px solid var(--line)
+}
+.metric-note {
+  font-size:11px;
+  color:var(--muted);
+  margin:4px 0 15px
+}
+.table-wrap {
+  overflow-x:auto
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px
+}
+th,td {
+  text-align:right;
+  padding:10px 8px;
+  border-bottom:1px solid #e7edef
+}
+th:first-child,td:first-child {
+  text-align:left;
+  padding-left:0
+}
+th {
+  font-size:10px;
+  color:var(--muted);
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.4px
+}
+td:first-child {
+  font-weight:500
+}
+.conclusion {
+  font-size:12px;
+  line-height:1.65;
+  color:var(--ink);
+  margin-top:16px
+}
+.scope {
+  font-size:10px;
+  line-height:1.65;
+  color:var(--muted);
+  margin:21px 0 0
+}
+#error {
+  color:#a43f2c;
+  background:#fff3ed;
+  border-radius:5px;
+  padding:10px;
+  font-size:12px;
+  margin:12px 0 0
+}
+footer {
+  font-size:10px;
+  color:var(--muted);
+  padding:27px 0 30px
+}
+@media(max-width:850px) {
+  .workspace {
+    grid-template-columns:1fr
+  }
+  .topbar {
+    padding:0 23px
+  }
+  .intro {
+    padding-top:32px
+  }
+  .input-panel,.output-panel {
+    padding:21px
+  }
+  main {
+    padding:0 20px
+  }
+  .intro br {
+    display:none
+  }
+}
+@media(max-width:460px) {
+  .local {
+    display:none
+  }
+  .two-col {
+    gap:10px
+  }
+  .section-top {
+    align-items:start;
+    gap:10px
+  }
+  .example-label {
+    min-width:130px
+  }
+  .score-value {
+    font-size:20px
+  }
+  .prediction-card .outcome {
+    font-size:18px
+  }
+}
+.prediction-cards.stale {
+  opacity: 0.45;
+}
+
