@@ -2,6 +2,7 @@
 from pathlib import Path
 import csv
 import json
+from decimal import Decimal, ROUND_HALF_UP
 from html import escape
 
 from reportlab.lib import colors
@@ -164,7 +165,9 @@ def main():
             continue
         row = models[key]
         rows.append([row['name'], f'{row["cv_f1_mean"]:.3f} +/- {row["cv_f1_sd"]:.3f}',
-                     f'{row["test_f1"]:.3f}', f'{row["test_precision"]:.3f}', f'{row["test_recall"]:.3f}'])
+                     f'{row["test_f1"]:.3f}',
+                     str(Decimal(str(row['test_precision'])).quantize(Decimal('.001'), rounding=ROUND_HALF_UP)),
+                     f'{row["test_recall"]:.3f}'])
     table(rows, [WIDTH*.38, WIDTH*.25, WIDTH*.12, WIDTH*.125, WIDTH*.125])
     for value in narrative['results']:
         paragraph(value)

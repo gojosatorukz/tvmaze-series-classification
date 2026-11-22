@@ -1,6 +1,7 @@
 """Generate concise entry points from the recorded experiment and reviewed findings."""
 from pathlib import Path
 import json
+from decimal import Decimal, ROUND_HALF_UP
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'results/final'
@@ -17,8 +18,9 @@ def main():
                 'target_minilm_combined', 'random_forest', 'gradient_boosting', 'mlp',
                 'endterm_rf_reference', 'svm_reference', 'dummy_majority']:
         row = models[key]
+        precision = Decimal(str(row['test_precision'])).quantize(Decimal('.001'), rounding=ROUND_HALF_UP)
         table.append(f'| {row["name"]} | {row["cv_f1_mean"]:.3f} ± {row["cv_f1_sd"]:.3f} | '
-                     f'{row["test_f1"]:.3f} | {row["test_precision"]:.3f} | {row["test_recall"]:.3f} |')
+                     f'{row["test_f1"]:.3f} | {precision} | {row["test_recall"]:.3f} |')
     table = '\n'.join(table)
     cases = '\n\n'.join('**'+case['name']+'** — '+case['text'] for case in findings['cases'])
     limits = '\n\n'.join(findings['limitations'])

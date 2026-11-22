@@ -35,7 +35,7 @@ For text, TF-IDF learns word unigrams and bigrams within each fitting fold. An L
 | TF-IDF text + LR | 0.344 ± 0.036 | 0.293 | 0.225 | 0.420 |
 | Metadata + TF-IDF + LR | 0.370 ± 0.022 | 0.336 | 0.249 | 0.519 |
 | MiniLM text + LR | 0.339 ± 0.034 | 0.347 | 0.245 | 0.593 |
-| Metadata + MiniLM + LR | 0.395 ± 0.039 | 0.315 | 0.237 | 0.469 |
+| Metadata + MiniLM + LR | 0.395 ± 0.039 | 0.315 | 0.238 | 0.469 |
 | Cross-fitted target encoding + LR | 0.382 ± 0.022 | 0.320 | 0.225 | 0.556 |
 | Target encoding + MiniLM + LR | 0.373 ± 0.031 | 0.330 | 0.230 | 0.580 |
 | Random Forest, full grid | 0.393 ± 0.023 | 0.319 | 0.235 | 0.494 |
